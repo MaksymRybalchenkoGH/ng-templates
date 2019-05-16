@@ -1,17 +1,27 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
-import { AppComponent } from './app.component'
+import { ScrollPageComponent } from './scroll-page/scroll-page.component'
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
-    children: []
+    children: [
+      {
+        path: 'foo',
+        component: ScrollPageComponent
+      }
+    ]
   }
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      // scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled'
+      // scrollOffset: [0, 64]
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

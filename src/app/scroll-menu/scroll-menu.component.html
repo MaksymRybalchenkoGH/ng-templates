@@ -1,0 +1,19 @@
+<nav class="menu-wrapper">
+  <!--<button class="menu-button" routerLink="./" fragment="blue">red</button>-->
+  <button class="menu-button" (click)="scrollTo(blue)">green</button>
+  <!--<button class="menu-button">blue</button>-->
+  <!--<button class="menu-button">yellow</button>-->
+  <button class="menu-button" *ngFor="let el of menuList" (click)="scrollTo(el.id)">
+    {{ el.name }}
+  </button>
+</nav>
+
+<ng-container *ngFor="let el of menuList; let i = index">
+  <div class="info-block {{ el.id }}" [appScrollAnchor]="el.id"></div>
+</ng-container>
+
+<!--<div class="info-block red"></div>-->
+<!--<div class="info-block green"></div>-->
+<!--<div class="info-block blue" #blue ></div>-->
+<!--<div class="info-block yellow"></div>-->
+<!--<div class="info-block grey" #grey id="grey"></div>-->
